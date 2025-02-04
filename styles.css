@@ -2,7 +2,7 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0 20px; /* Reduz o espaço lateral para 20px */
+  padding: 0 20px;
   background-color: #f9f9f9;
 }
 
@@ -24,22 +24,17 @@ header p {
   margin: 5px 0;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 .filters {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 30px; /* Aumenta o espaçamento entre os botões */
   margin-bottom: 20px;
+  flex-wrap: wrap; /* Permite que os botões quebrem para a linha seguinte em telas menores */
 }
 
 .filters button {
-  padding: 10px 20px;
-  font-size: 1em;
+  padding: 12px 24px; /* Ajusta o padding para deixar os botões mais espaçados */
+  font-size: 1.1em;
   border: none;
   border-radius: 5px;
   background-color: #ffcc00;
@@ -49,13 +44,14 @@ header p {
 }
 
 .filters button:hover {
-  background-color: #ff8000; /* Cor mais vibrante para o hover */
+  background-color: #ff8000;
 }
 
 #dog-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+  margin-top: 20px; /* Adiciona um espaçamento entre o final do cabeçalho e as imagens */
 }
 
 .card {
@@ -72,7 +68,7 @@ header p {
 .card img {
   width: 100%;
   height: 200px;
-  object-fit: contain; /* Ajuste para que a imagem não corte */
+  object-fit: contain;
 }
 
 .card-content {
@@ -112,27 +108,22 @@ nav {
 }
 
 nav button {
-  padding: 12px 25px; /* Aumenta o tamanho dos botões */
-  font-size: 1.2em; /* Ajusta o tamanho da fonte */
-  border: 2px solid #ffcc00; /* Borda com a mesma cor do fundo */
-  border-radius: 5px; /* Bordas arredondadas */
-  background-color: #fff; /* Fundo branco para os botões */
-  color: #333; /* Cor do texto */
-  cursor: pointer; /* Aparece como uma mãozinha ao passar o mouse */
-  transition: all 0.3s ease; /* Adiciona uma transição suave para efeitos */
-  margin: 0 10px; /* Espaço entre os botões */
+  padding: 12px 25px;
+  font-size: 1.2em;
+  border: 2px solid #ffcc00;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 15px; /* Aumenta o espaçamento entre os botões */
 }
 
 nav button:hover {
-  background-color: #ff8000; /* Cor de fundo mais vibrante para o hover */
-  color: #fff; /* Cor do texto muda para branco */
-  transform: scale(1.05); /* Aumenta o tamanho do botão para dar um efeito de destaque */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
-}
-
-nav button:active {
-  transform: scale(0.98); /* Diminui o botão ligeiramente ao ser clicado */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Menos sombra ao clicar */
+  background-color: #ff8000;
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 footer {
@@ -148,52 +139,78 @@ footer p {
   margin: 0;
 }
 
-/* Estilos para o botão "Voltar para a Lista" */
 nav a {
   padding: 12px 25px;
   font-size: 1.2em;
-  border: 2px solid #ffcc00; /* Borda com a mesma cor do fundo */
-  border-radius: 5px; /* Bordas arredondadas */
-  background-color: #fff; /* Fundo branco para o botão */
-  color: #333; /* Cor do texto */
-  cursor: pointer; /* Aparece como uma mãozinha ao passar o mouse */
-  text-decoration: none; /* Remove o sublinhado do link */
-  transition: all 0.3s ease; /* Adiciona uma transição suave para efeitos */
-  margin: 0 10px; /* Espaço entre os botões */
+  border: 2px solid #ffcc00;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 0 15px; /* Aumenta o espaçamento entre os botões */
 }
 
 nav a:hover {
-  background-color: #ff8000; /* Cor de fundo mais vibrante para o hover */
-  color: #fff; /* Cor do texto muda para branco */
-  transform: scale(1.05); /* Aumenta o tamanho do botão para dar um efeito de destaque */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
+  background-color: #ff8000;
+  color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 nav a:active {
-  transform: scale(0.98); /* Diminui o botão ligeiramente ao ser clicado */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Menos sombra ao clicar */
+  transform: scale(0.98);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Efeito ao passar o mouse sobre as imagens dos cães */
 .card img {
   width: 100%;
   height: 200px;
-  object-fit: contain; /* Ajuste para que a imagem não corte */
+  object-fit: contain;
   transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
 
 .card img:hover {
-  transform: scale(1.05); /* Aumenta o tamanho da imagem */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
-  opacity: 0.8; /* Deixa a imagem um pouco opaca */
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
 }
 
-/* Estilos para a imagem do cachorro */
 .card img {
   width: 100%;
   height: 200px;
-  object-fit: contain; /* Ajuste para que a imagem não corte */
-  border-radius: 10px; /* Bordas arredondadas em todos os cantos */
+  object-fit: contain;
+  border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
 }
+
+/* Ajustes para telas pequenas (menos de 768px) */
+@media (max-width: 768px) {
+  body {
+      padding: 0 10px;
+  }
+
+  .filters {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px; /* Aumenta o espaçamento entre os botões */
+  }
+
+  #dog-list {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px; /* Aumenta o gap entre os cards */
+  }
+
+  .card img {
+      height: 150px;
+  }
+
+  nav button, nav a {
+      font-size: 1.1em; /* Aumenta o tamanho da fonte para melhor visualização */
+      padding: 12px 28px; /* Ajusta o padding */
+  }
+}
+
 
