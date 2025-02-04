@@ -1,6 +1,5 @@
 "use strict";
 
-// Lista de cães
 var dogs = [{
   id: 1,
   name: "Toby",
@@ -92,6 +91,13 @@ var dogs = [{
   size: "Grande",
   description: "Grande e amigável, perfeito para famílias com espaço.",
   image: "/img/grande5.jpg"
+}, // Novo cachorro pequeno
+{
+  id: 16,
+  name: "Pipoca",
+  size: "Pequeno",
+  description: "Brincalhona e cheia de energia, adora correr no parque.",
+  image: "/img/pequeno7.jpg"
 }]; // Função para renderizar os cães
 
 function renderDogs(filteredDogs) {
@@ -101,7 +107,7 @@ function renderDogs(filteredDogs) {
   filteredDogs.forEach(function (dog) {
     var card = document.createElement("div");
     card.classList.add("card");
-    card.innerHTML = "\n        <img src=\"".concat(dog.image, "\" alt=\"").concat(dog.name, "\" />\n        <div class=\"card-content\">\n          <h2>").concat(dog.name, "</h2>\n          <p>").concat(dog.size, " Porte</p>\n          <p>").concat(dog.description, "</p>\n          <button onclick=\"adoptDog(").concat(dog.id, ")\">Adotar</button>\n        </div>\n      ");
+    card.innerHTML = "\n      <img src=\"".concat(dog.image, "\" alt=\"").concat(dog.name, "\" />\n      <div class=\"card-content\">\n        <h2>").concat(dog.name, "</h2>\n        <p>").concat(dog.size, " Porte</p>\n        <p>").concat(dog.description, "</p>\n        <button onclick=\"adoptDog(").concat(dog.id, ")\">Adotar</button>\n      </div>\n    ");
     dogList.appendChild(card);
   });
 } // Função para filtrar os cães por porte
