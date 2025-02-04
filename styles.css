@@ -200,4 +200,30 @@ body {
     font-size: 1.2em;
     margin: 0;
   }
+
+  /* Estilos para o botão "Voltar para a Lista" */
+nav a {
+    padding: 12px 25px;
+    font-size: 1.2em;
+    border: 2px solid #ffcc00; /* Borda com a mesma cor do fundo */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #fff; /* Fundo branco para o botão */
+    color: #333; /* Cor do texto */
+    cursor: pointer; /* Aparece como uma mãozinha ao passar o mouse */
+    text-decoration: none; /* Remove o sublinhado do link */
+    transition: all 0.3s ease; /* Adiciona uma transição suave para efeitos */
+    margin: 0 10px; /* Espaço entre os botões */
+  }
   
+  /* Efeito ao passar o mouse (hover) no botão "Voltar para a Lista" */
+  nav a:hover {
+    background-color: #ff8000; /* Cor de fundo mais vibrante para o hover */
+    color: #fff; /* Cor do texto muda para branco */
+    transform: scale(1.05); /* Aumenta o tamanho do botão para dar um efeito de destaque */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
+  }
+  
+  nav a:active {
+    transform: scale(0.98); /* Diminui o botão ligeiramente ao ser clicado */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Menos sombra ao clicar */
+  }
