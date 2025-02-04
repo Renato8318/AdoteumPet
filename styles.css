@@ -1,3 +1,4 @@
+/* Estilos gerais para a página */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -136,18 +137,67 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Menos sombra ao clicar */
   }
   
+  /* Estilos para a página de detalhes do cachorro */
+  #dog-details {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 900px;
+    width: 90%;
+    text-align: center;
+    margin: 20px auto;
+  }
+  
+  #dog-details img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  #dog-details h2 {
+    font-size: 2.2em;
+    color: #ff6600;
+    margin-top: 0;
+  }
+  
+  #dog-details p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 10px;
+  }
+  
+  #dog-details button {
+    background-color: #ffcc00;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  #dog-details button:hover {
+    background-color: #ffaa00;
+    color: #fff;
+  }
+  
   /* Estilos para o rodapé */
   footer {
-    text-align: center;  /* Centraliza o conteúdo do rodapé */
+    text-align: center;
     padding: 20px;
-    background-color: #ffcc00;  /* Cor de fundo igual ao cabeçalho */
+    background-color: #ffcc00;
     color: #333;
-    margin-top: 20px;  /* Dá um pequeno espaço entre o conteúdo principal e o rodapé */
+    margin-top: 20px;
   }
   
   footer p {
-    font-size: 1.2em;  /* Ajusta o tamanho da fonte */
-    margin: 0;  /* Remove margens extras */
+    font-size: 1.2em;
+    margin: 0;
   }
-  
   
