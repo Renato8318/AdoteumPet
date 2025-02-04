@@ -258,3 +258,35 @@ nav a:active {
       padding: 12px 28px; /* Ajusta o padding */
   }
 }
+
+/* Ajustes para telas pequenas (menos de 768px) */
+@media (max-width: 768px) {
+  body {
+      padding: 0 10px;
+  }
+
+  .filters {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px; /* Ajusta o espaçamento entre todos os botões */
+  }
+
+  .filters button {
+      width: 100%; /* Torna os botões responsivos, ocupando toda a largura disponível */
+      max-width: 300px; /* Define um limite para que não fiquem muito grandes */
+  }
+
+  #dog-list {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px; /* Aumenta o gap entre os cards */
+  }
+
+  .card img {
+      height: 150px;
+  }
+
+  nav button, nav a {
+      font-size: 1.1em; /* Aumenta o tamanho da fonte para melhor visualização */
+      padding: 12px 28px; /* Ajusta o padding */
+  }
+}
