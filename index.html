@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adote um Doguinho</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Amicão</h1>
+    <p>Seu novo melhor amigo o espera!</p>
+    <nav>
+      <button onclick="filterDogs('Todos')">Todos</button>
+      <button onclick="filterDogs('Pequeno')">Pequeno Porte</button>
+      <button onclick="filterDogs('Médio')">Médio Porte</button>
+      <button onclick="filterDogs('Grande')">Grande Porte</button>
+    </nav>
+  </header>
+
+  <main id="dog-list" class="dog-list">
+    <!-- Lista de cães será renderizada aqui -->
+  </main>
+
+  <footer>
+    <p>© 2025 Amicão. Todos os direitos reservados.</p>
+
+  <script src="script.js"></script>
+</body>
+</html>
