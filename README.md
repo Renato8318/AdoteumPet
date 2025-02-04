@@ -4,9 +4,14 @@ Amicão é um projeto desenvolvido para facilitar a adoção de cães. O site pe
 
 Funcionalidades 🔧
 
-Lista de Cães Disponíveis: Visualização de todos os cães com informações básicas como nome, porte e uma imagem.
-Página de Detalhes do Cão: Ao clicar em um cachorro, o usuário é levado para uma página com mais detalhes sobre ele, incluindo uma descrição completa.
-Botão de Adoção: Ao visualizar os detalhes de um cão, o usuário pode clicar no botão "Adotar", que exibe uma mensagem de parabéns.
+Lista de Cães Disponíveis: 
+Visualização de todos os cães com informações básicas como nome, porte e uma imagem.
+
+Página de Detalhes do Cão: 
+Ao clicar em um cachorro, o usuário é levado para uma página com mais detalhes sobre ele, incluindo uma descrição completa.
+
+Botão de Adoção:
+Ao visualizar os detalhes de um cão, o usuário pode clicar no botão "Adotar", que exibe uma mensagem de parabéns.
 Botão "Voltar para a Lista": Permite que o usuário volte para a lista de cães disponíveis.
 
 Tecnologias Utilizadas 💻
