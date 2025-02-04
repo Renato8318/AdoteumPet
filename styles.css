@@ -1,231 +1,199 @@
 /* Estilos gerais para a página */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-  }
-  
-  header {
-    background-color: #ffcc00;
-    color: #333;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  header h1 {
-    font-size: 2.5em;
-    margin: 0;
-    font-weight: bold;
-  }
-  
-  header p {
-    font-size: 1.2em;
-    margin: 5px 0;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .filters {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .filters button {
-    padding: 10px 20px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    background-color: #ffcc00;
-    color: #333;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .filters button:hover {
-    background-color: #ff8000; /* Cor mais vibrante para o hover */
-  }
-  
-  #dog-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  
-  .card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .card-content {
-    padding: 15px;
-  }
-  
-  .card-content h2 {
-    font-size: 1.5em;
-    margin: 10px 0;
-  }
-  
-  .card-content p {
-    font-size: 1em;
-    margin: 5px 0;
-  }
-  
-  .card-content button {
-    margin-top: 10px;
-    padding: 10px 15px;
-    font-size: 1em;
-    border: none;
-    border-radius: 5px;
-    background-color: #ffcc00;
-    color: #333;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .card-content button:hover {
-    background-color: #ffaa00;
-    color: #fff;
-  }
-  
-  /* Estilos para os botões de navegação */
-  nav {
-    text-align: center;
-    margin: 20px 0;
-  }
-  
-  nav button {
-    padding: 12px 25px; /* Aumenta o tamanho dos botões */
-    font-size: 1.2em; /* Ajusta o tamanho da fonte */
-    border: 2px solid #ffcc00; /* Borda com a mesma cor do fundo */
-    border-radius: 5px; /* Bordas arredondadas */
-    background-color: #fff; /* Fundo branco para os botões */
-    color: #333; /* Cor do texto */
-    cursor: pointer; /* Aparece como uma mãozinha ao passar o mouse */
-    transition: all 0.3s ease; /* Adiciona uma transição suave para efeitos */
-    margin: 0 10px; /* Espaço entre os botões */
-  }
-  
-  /* Efeito ao passar o mouse (hover) nos botões */
-  nav button:hover {
-    background-color: #ff8000; /* Cor de fundo mais vibrante para o hover */
-    color: #fff; /* Cor do texto muda para branco */
-    transform: scale(1.05); /* Aumenta o tamanho do botão para dar um efeito de destaque */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
-  }
-  
-  nav button:active {
-    transform: scale(0.98); /* Diminui o botão ligeiramente ao ser clicado */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Menos sombra ao clicar */
-  }
-  
-  /* Estilos para a página de detalhes do cachorro */
-  #dog-details {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    max-width: 900px;
-    width: 90%;
-    text-align: center;
-    margin: 20px auto;
-  }
-  
-  #dog-details img {
-    width: 100%;
-    max-width: 600px;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  #dog-details h2 {
-    font-size: 2.2em;
-    color: #ff6600;
-    margin-top: 0;
-  }
-  
-  #dog-details p {
-    font-size: 1.1em;
-    color: #555;
-    line-height: 1.6;
-    margin-top: 10px;
-  }
-  
-  #dog-details button {
-    background-color: #ffcc00;
-    color: #333;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-  }
-  
-  #dog-details button:hover {
-    background-color: #ffaa00;
-    color: #fff;
-  }
-  
-  /* Estilos para o rodapé */
-  footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #ffcc00;
-    color: #333;
-    margin-top: 20px;
-  }
-  
-  footer p {
-    font-size: 1.2em;
-    margin: 0;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0 20px; /* Reduz o espaço lateral para 20px */
+  background-color: #f9f9f9;
+}
 
-  /* Estilos para o botão "Voltar para a Lista" */
+header {
+  background-color: #ffcc00;
+  color: #333;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5em;
+  margin: 0;
+  font-weight: bold;
+}
+
+header p {
+  font-size: 1.2em;
+  margin: 5px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffcc00;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.filters button:hover {
+  background-color: #ff8000; /* Cor mais vibrante para o hover */
+}
+
+#dog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain; /* Ajuste para que a imagem não corte */
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-content h2 {
+  font-size: 1.5em;
+  margin: 10px 0;
+}
+
+.card-content p {
+  font-size: 1em;
+  margin: 5px 0;
+}
+
+.card-content button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffcc00;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-content button:hover {
+  background-color: #ffaa00;
+  color: #fff;
+}
+
+nav {
+  text-align: center;
+  margin: 20px 0;
+}
+
+nav button {
+  padding: 12px 25px; /* Aumenta o tamanho dos botões */
+  font-size: 1.2em; /* Ajusta o tamanho da fonte */
+  border: 2px solid #ffcc00; /* Borda com a mesma cor do fundo */
+  border-radius: 5px; /* Bordas arredondadas */
+  background-color: #fff; /* Fundo branco para os botões */
+  color: #333; /* Cor do texto */
+  cursor: pointer; /* Aparece como uma mãozinha ao passar o mouse */
+  transition: all 0.3s ease; /* Adiciona uma transição suave para efeitos */
+  margin: 0 10px; /* Espaço entre os botões */
+}
+
+nav button:hover {
+  background-color: #ff8000; /* Cor de fundo mais vibrante para o hover */
+  color: #fff; /* Cor do texto muda para branco */
+  transform: scale(1.05); /* Aumenta o tamanho do botão para dar um efeito de destaque */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
+}
+
+nav button:active {
+  transform: scale(0.98); /* Diminui o botão ligeiramente ao ser clicado */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Menos sombra ao clicar */
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #ffcc00;
+  color: #333;
+  margin-top: 20px;
+}
+
+footer p {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+/* Estilos para o botão "Voltar para a Lista" */
 nav a {
-    padding: 12px 25px;
-    font-size: 1.2em;
-    border: 2px solid #ffcc00; /* Borda com a mesma cor do fundo */
-    border-radius: 5px; /* Bordas arredondadas */
-    background-color: #fff; /* Fundo branco para o botão */
-    color: #333; /* Cor do texto */
-    cursor: pointer; /* Aparece como uma mãozinha ao passar o mouse */
-    text-decoration: none; /* Remove o sublinhado do link */
-    transition: all 0.3s ease; /* Adiciona uma transição suave para efeitos */
-    margin: 0 10px; /* Espaço entre os botões */
-  }
-  
-  /* Efeito ao passar o mouse (hover) no botão "Voltar para a Lista" */
-  nav a:hover {
-    background-color: #ff8000; /* Cor de fundo mais vibrante para o hover */
-    color: #fff; /* Cor do texto muda para branco */
-    transform: scale(1.05); /* Aumenta o tamanho do botão para dar um efeito de destaque */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
-  }
-  
-  nav a:active {
-    transform: scale(0.98); /* Diminui o botão ligeiramente ao ser clicado */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Menos sombra ao clicar */
-  }
+  padding: 12px 25px;
+  font-size: 1.2em;
+  border: 2px solid #ffcc00; /* Borda com a mesma cor do fundo */
+  border-radius: 5px; /* Bordas arredondadas */
+  background-color: #fff; /* Fundo branco para o botão */
+  color: #333; /* Cor do texto */
+  cursor: pointer; /* Aparece como uma mãozinha ao passar o mouse */
+  text-decoration: none; /* Remove o sublinhado do link */
+  transition: all 0.3s ease; /* Adiciona uma transição suave para efeitos */
+  margin: 0 10px; /* Espaço entre os botões */
+}
 
-  
+nav a:hover {
+  background-color: #ff8000; /* Cor de fundo mais vibrante para o hover */
+  color: #fff; /* Cor do texto muda para branco */
+  transform: scale(1.05); /* Aumenta o tamanho do botão para dar um efeito de destaque */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
+}
+
+nav a:active {
+  transform: scale(0.98); /* Diminui o botão ligeiramente ao ser clicado */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Menos sombra ao clicar */
+}
+
+/* Efeito ao passar o mouse sobre as imagens dos cães */
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain; /* Ajuste para que a imagem não corte */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.card img:hover {
+  transform: scale(1.05); /* Aumenta o tamanho da imagem */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
+  opacity: 0.8; /* Deixa a imagem um pouco opaca */
+}
+
+/* Estilos para a imagem do cachorro */
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain; /* Ajuste para que a imagem não corte */
+  border-radius: 10px; /* Bordas arredondadas em todos os cantos */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
