@@ -290,3 +290,43 @@ nav a:active {
       padding: 12px 28px; /* Ajusta o padding */
   }
 }
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px;
+    text-align: center;
+  }
+
+  header h1 {
+    font-size: 1.8em; /* Diminui o tamanho do texto do título */
+    word-wrap: break-word; /* Quebra o texto se for muito longo */
+  }
+
+  header p {
+    font-size: 1em; /* Ajusta o tamanho do subtítulo */
+  }
+
+  .filters {
+    flex-direction: column; /* Organiza os botões em coluna */
+    align-items: center;
+    gap: 10px;
+  }
+
+  .filters button {
+    width: 100%; /* Botões ocupam toda a largura disponível */
+    max-width: 280px; /* Define um limite de largura */
+    font-size: 1em; /* Reduz o tamanho da fonte */
+  }
+
+  nav {
+    flex-wrap: wrap; /* Permite que os botões do menu se ajustem em várias linhas */
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav button, nav a {
+    width: 100%;
+    max-width: 250px; /* Torna os botões mais compactos */
+    font-size: 1em;
+  }
+}
