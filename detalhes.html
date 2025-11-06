@@ -8,21 +8,22 @@
 </head>
 <body>
   <header>
-    <h1>Detalhes do seu novo Doguinho</h1>
+    <h1 id="details-title">Detalhes do seu novo Doguinho</h1>
     <nav>
       <a href="index.html">Voltar para a Lista</a>
     </nav>
   </header>
 
   <main id="dog-details">
-    <!-- Detalhes do cachorro serão exibidos aqui -->
-  </main>
+    </main>
+
+  <footer>
+    <p>&copy; 2025 Plataforma de Adoção de Cães | Todos os direitos reservados.</p>
+    <p>Obrigado por considerar a adoção de um cão! Juntos podemos fazer a diferença na vida de muitos animais.🐶🐾🏠</p>
+  </footer>
 
   <script>
-    // Recupera o ID do cachorro adotado do localStorage
-    const dogId = localStorage.getItem('adoptedDogId');
-    
-    // Lista de cães
+    // Lista de cães (necessária para a renderização inicial)
     const dogs = [
       { id: 1, name: "Toby", size: "Pequeno", description: "Um cão pequeno e amigável, perfeito para apartamentos.", curiosities: "Adora passeios curtos e é muito sociável.", personality: "Alegre e obediente", compatibility: "Se dá bem com crianças e idosos", history: "Foi resgatado após ser abandonado ainda filhote.", vaccines: "Todas em dia", image: "../img/pequeno2.jpg" },
       { id: 2, name: "Bella", size: "Médio", description: "Uma cadela enérgica que adora brincar ao ar livre.", curiosities: "Cheia de energia e ama brinquedos de corrida.", personality: "Enérgica e carinhosa", compatibility: "Adora estar com crianças e outros cães.", history: "Resgatada de um abrigo.", vaccines: "Todas em dia", image: "../img/medio.jpg" },
@@ -40,33 +41,52 @@
       { id: 14, name: "Zara", size: "Pequeno", description: "Muito doce e carinhosa, sempre pronta para um abraço.", curiosities: "Adora o colo dos donos.", personality: "Meiga e companheira", compatibility: "Ideal para lares tranquilos.", history: "Resgatada de um abrigo lotado.", vaccines: "Todas em dia", image: "../img/pequeno6.jpg" },
       { id: 15, name: "Spike", size: "Grande", description: "Grande e amigável, perfeito para famílias com espaço.", curiosities: "Muito dócil e brinca com bolas grandes.", personality: "Amigável e brincalhão", compatibility: "Ótimo para quintais e famílias grandes.", history: "Resgatado de uma fazenda.", vaccines: "Todas em dia", image: "../img/grande5.jpg" }
     ];
+    
+    // FUNÇÃO DE FINALIZAÇÃO DA ADOÇÃO
+    function finishAdoption(dogName) {
+        const dogDetailsContainer = document.getElementById("dog-details");
+        const dogHeader = document.getElementById('details-title');
+        
+        localStorage.removeItem('adoptedDogId');
+        dogHeader.textContent = "Adoção Concluída!";
 
-    // Exibe os detalhes do cachorro com base no ID
-    const selectedDog = dogs.find(dog => dog.id == dogId);
-    if (selectedDog) {
-      const dogDetails = `
-        <div class="dog-card">
-          <img src="${selectedDog.image}" alt="${selectedDog.name}" />
-          <h2>${selectedDog.name}</h2>
-          <p><strong>Porte:</strong> ${selectedDog.size}</p>
-          <p><strong>Descrição:</strong> ${selectedDog.description}</p>
-          <p><strong>Curiosidades:</strong> ${selectedDog.curiosities}</p>
-          <p><strong>Personalidade:</strong> ${selectedDog.personality}</p>
-          <p><strong>Compatibilidade:</strong> ${selectedDog.compatibility}</p>
-          <p><strong>História:</strong> ${selectedDog.history}</p>
-          <p><strong>Vacinas:</strong> ${selectedDog.vaccines}</p>
-        </div>
-      `;
-      document.getElementById("dog-details").innerHTML = dogDetails;
-    } else {
-      document.getElementById("dog-details").innerHTML = "<p>Cachorro não encontrado.</p>";
+        dogDetailsContainer.innerHTML = `
+            <div class="adoption-success">
+                <h2>Parabéns! 🎉</h2>
+                <p>Você acaba de dar um lar cheio de amor para o **${dogName}**!</p>
+                <p>Obrigado por mudar a vida de um animal. Em breve, entraremos em contato para finalizar os detalhes da sua adoção. ❤️🏠</p>
+                <a href="index.html" class="button-back">Voltar para a Lista</a>
+            </div>
+        `;
     }
-  </script>
 
-  <footer>
-    <p>&copy; 2025 Plataforma de Adoção de Cães | Todos os direitos reservados.</p>
-    <p>Obrigado por considerar a adoção de um cão! Juntos podemos fazer a diferença na vida de muitos animais.🐶🐾🏠</p>
-  </footer>
+    // Lógica de carregamento da página
+    document.addEventListener('DOMContentLoaded', () => {
+        const dogId = localStorage.getItem('adoptedDogId');
+        const dogDetailsElement = document.getElementById("dog-details");
+        const selectedDog = dogs.find(dog => dog.id == dogId);
+        
+        if (selectedDog) {
+            const dogDetails = `
+                <div class="dog-card">
+                    <img src="${selectedDog.image}" alt="${selectedDog.name}" />
+                    <h2>${selectedDog.name}</h2>
+                    <p><strong>Porte:</strong> ${selectedDog.size}</p>
+                    <p><strong>Descrição:</strong> ${selectedDog.description}</p>
+                    <p><strong>Curiosidades:</strong> ${selectedDog.curiosities}</p>
+                    <p><strong>Personalidade:</strong> ${selectedDog.personality}</p>
+                    <p><strong>Compatibilidade:</strong> ${selectedDog.compatibility}</p>
+                    <p><strong>História:</strong> ${selectedDog.history}</p>
+                    <p><strong>Vacinas:</strong> ${selectedDog.vaccines}</p>
+                    
+                    <button class="finish-button" onclick="finishAdoption('${selectedDog.name}')">Finalizar Adoção</button>
+                </div>
+            `;
+            dogDetailsElement.innerHTML = dogDetails;
+        } else {
+            dogDetailsElement.innerHTML = "<p>Nenhum cachorro selecionado para visualização. Volte à <a href='index.html'>lista principal</a>.</p>";
+        }
+    });
+  </script>
 </body>
 </html>
-
