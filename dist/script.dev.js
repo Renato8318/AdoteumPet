@@ -1,4 +1,4 @@
-"use strict"; // Fonte de dados DOS CÃES (DEVE SER IDÊNTICA À DO DETALHES.HTML)
+"use strict"; // Lista de cães (para index.html)
 
 var dogs = [{
   id: 1,
@@ -118,9 +118,10 @@ function renderDogs(filteredDogs) {
   var dogList = document.getElementById("dog-list");
   dogList.innerHTML = "";
   filteredDogs.forEach(function (dog) {
-    var card = document.createElement("div");
-    card.classList.add("card");
-    card.innerHTML = "\n      <img src=\"".concat(dog.image, "\" alt=\"").concat(dog.name, "\" />\n      <div class=\"card-content\">\n        <h2>").concat(dog.name, "</h2>\n        <p>").concat(dog.size, " Porte</p>\n        <p>").concat(dog.description, "</p>\n        <button onclick=\"adoptDog(").concat(dog.id, ", event)\">Adotar</button>\n      </div>\n    ");
+    var card = document.createElement("div"); // Classes Tailwind para o card completo
+
+    card.className = "bg-white rounded-xl shadow-lg overflow-hidden flex flex-col justify-between";
+    card.innerHTML = "\n      <img src=\"".concat(dog.image, "\" alt=\"").concat(dog.name, "\" class=\"w-full h-48 object-cover\"/>\n      <div class=\"p-4 flex flex-col justify-between flex-grow\">\n        <div class=\"text-center\">\n            <h2 class=\"text-xl font-semibold mb-1 text-gray-900\">").concat(dog.name, "</h2>\n            <p class=\"text-sm text-gray-500 mb-2\">").concat(dog.size, " Porte</p>\n            <p class=\"text-sm mb-3\">").concat(dog.description, "</p>\n        </div>\n        <button onclick=\"adoptDog(").concat(dog.id, ", event)\" class=\"w-full py-2 mt-2 bg-yellow-400 text-gray-800 font-semibold rounded-lg transition duration-300 hover:bg-yellow-600 hover:text-white hover:scale-110 hover:shadow-2xl\">Adotar</button>\n      </div>\n    ");
     dogList.appendChild(card);
   });
 } // Função para filtrar os cães por porte
@@ -130,10 +131,11 @@ function filterDogs(size) {
   var filteredDogs = size === "Todos" ? dogs : dogs.filter(function (dog) {
     return dog.size === size;
   });
-  renderDogs(filteredDogs);
+  renderDogs(filteredDogs); // Lógica para aplicar e remover a classe 'active-filter'
+
   var buttons = document.querySelectorAll('.filters button');
   buttons.forEach(function (button) {
-    button.classList.remove('active-filter');
+    button.classList.remove('active-filter'); // Adiciona a classe ativa se o texto do botão corresponder ao filtro
 
     if (button.textContent.includes(size)) {
       button.classList.add('active-filter');
@@ -142,12 +144,13 @@ function filterDogs(size) {
 } // Função de adoção (SALVA O ID, ADICIONA DESTAQUE TEMPORÁRIO E REDIRECIONA)
 
 
-function adoptDog(id) {
-  // Captura o botão clicado
-  var button = event.target; // 1. Adiciona a classe para o destaque/zoom imediato
+function adoptDog(id, event) {
+  var button = event.target; // 1. Adiciona a classe 'clicked-highlight' para o destaque/zoom imediato
+  // Esta classe precisa ser definida no CSS global ou localmente se não for uma classe Tailwind padrão.
+  // Para fins de CDN, o hover já dará um efeito similar no desktop.
+  // No mobile, o touch fará a transição.
 
-  button.classList.add('clicked-highlight'); // Salva o ID do cachorro no localStorage
-
+  button.classList.add('clicked-highlight');
   localStorage.setItem('adoptedDogId', id); // 2. Espera 300ms (0.3s) para o efeito visual aparecer antes de redirecionar
 
   setTimeout(function () {

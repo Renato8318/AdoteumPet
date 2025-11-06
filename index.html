@@ -3,27 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adote um Doguinho - Amicão</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Adote um Doguinho - Amicão (Tailwind)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <h1>Amicão</h1>
-    <p>Seu próximo melhor amigo está aqui!🐶❤️🏠</p>
-    <nav class="filters">
-      <button onclick="filterDogs('Todos')">Todos</button>
-      <button onclick="filterDogs('Pequeno')">Pequeno Porte</button>
-      <button onclick="filterDogs('Médio')">Médio Porte</button>
-      <button onclick="filterDogs('Grande')">Grande Porte</button>
+<body class="bg-gray-50 p-4 sm:p-8">
+  <header class="bg-yellow-400 text-gray-800 p-6 text-center rounded-xl shadow-lg mb-8">
+    
+    <h1 class="text-5xl sm:text-6xl font-extrabold text-yellow-700 drop-shadow-lg mb-1">Amicão</h1>
+    
+    <p class="text-lg sm:text-2xl font-medium text-gray-900 italic mb-4">Seu próximo melhor amigo está aqui!🐶❤️🏠</p>
+    
+    <nav class="flex flex-wrap justify-center gap-4 filters">
+      
+      <button onclick="filterDogs('Todos')" class="px-6 py-3 text-lg border border-yellow-600 rounded-lg bg-white text-gray-800 cursor-pointer transition duration-300 shadow-md hover:bg-yellow-600 hover:text-white hover:scale-110 hover:shadow-xl">Todos</button>
+      <button onclick="filterDogs('Pequeno')" class="px-6 py-3 text-lg border border-yellow-600 rounded-lg bg-white text-gray-800 cursor-pointer transition duration-300 shadow-md hover:bg-yellow-600 hover:text-white hover:scale-110 hover:shadow-xl">Pequeno Porte</button>
+      <button onclick="filterDogs('Médio')" class="px-6 py-3 text-lg border border-yellow-600 rounded-lg bg-white text-gray-800 cursor-pointer transition duration-300 shadow-md hover:bg-yellow-600 hover:text-white hover:scale-110 hover:shadow-xl">Médio Porte</button>
+      <button onclick="filterDogs('Grande')" class="px-6 py-3 text-lg border border-yellow-600 rounded-lg bg-white text-gray-800 cursor-pointer transition duration-300 shadow-md hover:bg-yellow-600 hover:text-white hover:scale-110 hover:shadow-xl">Grande Porte</button>
     </nav>
   </header>
 
-  <main id="dog-list" class="dog-list">
+  <main id="dog-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6">
     </main>
 
-  <footer>
-    <p>© 2025 Amicão. Todos os direitos reservados.</p>
-    <a>Feito com carinho por Renato Paiva Dev 🚀💻</a>
+  <footer class="mt-12 text-center p-4 bg-yellow-400 text-gray-800 rounded-xl shadow-lg">
+    <p class="text-sm">© 2025 Amicão. Todos os direitos reservados.</p>
+    <p class="text-xs mt-1">Feito com carinho por Renato Paiva Dev 🚀💻</p>
   </footer>
 
   <script src="script.js"></script>

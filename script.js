@@ -1,6 +1,6 @@
 "use strict";
 
-// Fonte de dados DOS CÃES (DEVE SER IDÊNTICA À DO DETALHES.HTML)
+// Lista de cães (para index.html)
 const dogs = [
   { id: 1, name: "Toby", size: "Pequeno", description: "Um cão pequeno e amigável, perfeito para apartamentos.", curiosities: "Toby adora passeios curtos e é muito sociável com outros cães. Ele se adapta bem a espaços pequenos.", image: "../img/pequeno2.jpg" },
   { id: 2, name: "Bella", size: "Médio", description: "Uma cadela enérgica que adora brincar ao ar livre.", curiosities: "Bella é cheia de energia e ama brinquedos de corrida. Também gosta de se refrescar em dias quentes.", image: "../img/medio.jpg" },
@@ -23,19 +23,22 @@ const dogs = [
 // Função para renderizar os cães
 function renderDogs(filteredDogs) {
   const dogList = document.getElementById("dog-list");
-  dogList.innerHTML = "";
+  dogList.innerHTML = ""; 
 
   filteredDogs.forEach((dog) => {
     const card = document.createElement("div");
-    card.classList.add("card");
+    // Classes Tailwind para o card completo
+    card.className = "bg-white rounded-xl shadow-lg overflow-hidden flex flex-col justify-between"; 
 
     card.innerHTML = `
-      <img src="${dog.image}" alt="${dog.name}" />
-      <div class="card-content">
-        <h2>${dog.name}</h2>
-        <p>${dog.size} Porte</p>
-        <p>${dog.description}</p>
-        <button onclick="adoptDog(${dog.id}, event)">Adotar</button>
+      <img src="${dog.image}" alt="${dog.name}" class="w-full h-48 object-cover"/>
+      <div class="p-4 flex flex-col justify-between flex-grow">
+        <div class="text-center">
+            <h2 class="text-xl font-semibold mb-1 text-gray-900">${dog.name}</h2>
+            <p class="text-sm text-gray-500 mb-2">${dog.size} Porte</p>
+            <p class="text-sm mb-3">${dog.description}</p>
+        </div>
+        <button onclick="adoptDog(${dog.id}, event)" class="w-full py-2 mt-2 bg-yellow-400 text-gray-800 font-semibold rounded-lg transition duration-300 hover:bg-yellow-600 hover:text-white hover:scale-110 hover:shadow-2xl">Adotar</button>
       </div>
     `;
 
@@ -49,9 +52,11 @@ function filterDogs(size) {
         size === "Todos" ? dogs : dogs.filter((dog) => dog.size === size);
     renderDogs(filteredDogs);
 
+    // Lógica para aplicar e remover a classe 'active-filter'
     const buttons = document.querySelectorAll('.filters button');
     buttons.forEach(button => {
         button.classList.remove('active-filter');
+        // Adiciona a classe ativa se o texto do botão corresponder ao filtro
         if (button.textContent.includes(size)) {
             button.classList.add('active-filter');
         }
@@ -59,14 +64,15 @@ function filterDogs(size) {
 }
 
 // Função de adoção (SALVA O ID, ADICIONA DESTAQUE TEMPORÁRIO E REDIRECIONA)
-function adoptDog(id) {
-  // Captura o botão clicado
+function adoptDog(id, event) { 
   const button = event.target; 
   
-  // 1. Adiciona a classe para o destaque/zoom imediato
+  // 1. Adiciona a classe 'clicked-highlight' para o destaque/zoom imediato
+  // Esta classe precisa ser definida no CSS global ou localmente se não for uma classe Tailwind padrão.
+  // Para fins de CDN, o hover já dará um efeito similar no desktop.
+  // No mobile, o touch fará a transição.
   button.classList.add('clicked-highlight'); 
   
-  // Salva o ID do cachorro no localStorage
   localStorage.setItem('adoptedDogId', id);
 
   // 2. Espera 300ms (0.3s) para o efeito visual aparecer antes de redirecionar
@@ -75,6 +81,7 @@ function adoptDog(id) {
       button.classList.remove('clicked-highlight'); 
   }, 300); 
 }
+
 
 // Renderiza todos os cães ao carregar a página
 window.onload = () => {
