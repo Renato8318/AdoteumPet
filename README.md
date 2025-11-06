@@ -22,23 +22,6 @@ JavaScript: Lógica de interatividade, incluindo exibição dos detalhes do cão
 Flexbox e Grid: Usados para layout responsivo, adaptando a interface para diferentes tamanhos de tela.
 
 
-Como Usar 🚀
-
-Clone o Repositório:
-
-bash
-Copiar
-Editar
-git clone https://github.com/usuario/amicao.git
-Instale as Dependências:
-
-O projeto não possui dependências externas, apenas HTML, CSS e JavaScript puros.
-
-Abra o Projeto no Navegador:
-
-Abra o arquivo index.html em seu navegador para visualizar a lista de cães.
-Clique em qualquer cão para visualizar mais detalhes sobre ele.
-
 
 Interação:
 
