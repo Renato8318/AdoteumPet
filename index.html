@@ -4,30 +4,162 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adote um Doguinho - Amicão (Tailwind)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  <style>
+    body { font-family: 'Nunito', sans-serif; }
+    html.dark .paw-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 32c-4 0-7 3-7 7s3 7 7 7 7-3 7-7-3-7-7-7zm-8-7c-2 0-3.5 1.5-3.5 3.5s1.5 3.5 3.5 3.5 3.5-1.5 3.5-3.5-1.5-3.5-3.5-3.5zm16 0c-2 0-3.5 1.5-3.5 3.5s1.5 3.5 3.5 3.5 3.5-1.5 3.5-3.5-1.5-3.5-3.5-3.5zm-11-7c-2 0-3.5 1.5-3.5 3.5s1.5 3.5 3.5 3.5 3.5-1.5 3.5-3.5-1.5-3.5-3.5-3.5zm6 0c-2 0-3.5 1.5-3.5 3.5s1.5 3.5 3.5 3.5 3.5-1.5 3.5-3.5-1.5-3.5-3.5-3.5z' fill='%23ffffff' fill-opacity='0.15'/%3E%3C/svg%3E");
+    }
+    .paw-pattern {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 32c-4 0-7 3-7 7s3 7 7 7 7-3 7-7-3-7-7-7zm-8-7c-2 0-3.5 1.5-3.5 3.5s1.5 3.5 3.5 3.5 3.5-1.5 3.5-3.5-1.5-3.5-3.5-3.5zm16 0c-2 0-3.5 1.5-3.5 3.5s1.5 3.5 3.5 3.5 3.5-1.5 3.5-3.5-1.5-3.5-3.5-3.5zm-11-7c-2 0-3.5 1.5-3.5 3.5s1.5 3.5 3.5 3.5 3.5-1.5 3.5-3.5-1.5-3.5-3.5-3.5zm6 0c-2 0-3.5 1.5-3.5 3.5s1.5 3.5 3.5 3.5 3.5-1.5 3.5-3.5-1.5-3.5-3.5-3.5z' fill='%2310b981' fill-opacity='0.30'/%3E%3C/svg%3E");
+    }
+    @keyframes blob {
+      0% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+    .animate-blob { animation: blob 10s infinite; }
+    .animation-delay-2000 { animation-delay: 2s; }
+    .animation-delay-4000 { animation-delay: 4s; }
+
+    @keyframes fadeInCard {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fadeInCard 0.6s ease-out forwards;
+    }
+
+    /* Estilização suave para o carrossel no mobile */
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(16, 185, 129, 0.2);
+      border-radius: 10px;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 p-4 sm:p-8">
-  <header class="bg-yellow-400 text-gray-800 p-6 text-center rounded-xl shadow-lg mb-8">
-    
-    <h1 class="text-5xl sm:text-6xl font-extrabold text-yellow-700 drop-shadow-lg mb-1">Amicão</h1>
-    
-    <p class="text-lg sm:text-2xl font-medium text-gray-900 italic mb-4">Seu próximo melhor amigo está aqui!🐶❤️🏠</p>
-    
-    <nav class="flex flex-wrap justify-center gap-4 filters">
-      
-      <button onclick="filterDogs('Todos')" class="px-6 py-3 text-lg border border-yellow-600 rounded-lg bg-white text-gray-800 cursor-pointer transition duration-300 shadow-md hover:bg-yellow-600 hover:text-white hover:scale-110 hover:shadow-xl">Todos</button>
-      <button onclick="filterDogs('Pequeno')" class="px-6 py-3 text-lg border border-yellow-600 rounded-lg bg-white text-gray-800 cursor-pointer transition duration-300 shadow-md hover:bg-yellow-600 hover:text-white hover:scale-110 hover:shadow-xl">Pequeno Porte</button>
-      <button onclick="filterDogs('Médio')" class="px-6 py-3 text-lg border border-yellow-600 rounded-lg bg-white text-gray-800 cursor-pointer transition duration-300 shadow-md hover:bg-yellow-600 hover:text-white hover:scale-110 hover:shadow-xl">Médio Porte</button>
-      <button onclick="filterDogs('Grande')" class="px-6 py-3 text-lg border border-yellow-600 rounded-lg bg-white text-gray-800 cursor-pointer transition duration-300 shadow-md hover:bg-yellow-600 hover:text-white hover:scale-110 hover:shadow-xl">Grande Porte</button>
-    </nav>
+<body class="bg-slate-50 dark:bg-slate-900 dark:text-slate-100 relative min-h-screen overflow-x-hidden transition-colors duration-500">
+  <div class="paw-pattern"></div>
+  
+  <!-- Navbar Fixa -->
+  <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-200 dark:border-slate-800 px-6 py-4 flex justify-between items-center shadow-sm">
+    <div class="flex items-center gap-2">
+      <i class="fas fa-paw text-emerald-500 text-2xl"></i>
+      <span class="text-2xl font-extrabold bg-gradient-to-r from-emerald-500 to-teal-600 bg-clip-text text-transparent">Amicão</span>
+    </div>
+    <button onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-gray-800 dark:text-yellow-400 transition-all hover:scale-110">
+      <i class="fas fa-moon dark:hidden"></i>
+      <i class="fas fa-sun hidden dark:inline"></i>
+    </button>
+  </nav>
+
+  <!-- Elementos decorativos de fundo -->
+  <div class="fixed -top-24 -left-24 w-96 h-96 bg-emerald-200 dark:bg-emerald-900 rounded-full mix-blend-multiply filter blur-3xl opacity-30 dark:opacity-20 animate-blob"></div>
+  <div class="fixed top-1/2 -right-24 w-80 h-80 bg-yellow-200 dark:bg-amber-900 rounded-full mix-blend-multiply filter blur-3xl opacity-30 dark:opacity-20 animate-blob animation-delay-2000"></div>
+
+  <!-- Hero Section -->
+  <header class="relative z-10 pt-32 pb-16 px-6 text-center">
+    <h2 class="text-4xl sm:text-6xl font-black text-gray-800 dark:text-white mb-4 tracking-tight">
+      Seu novo <span class="text-emerald-500 italic">melhor amigo</span> te espera.
+    </h2>
+    <p class="text-lg text-gray-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 font-medium">
+      Centenas de cães estão prontos para encontrar um lar cheio de amor. Comece sua busca agora! 🐶❤️
+    </p>
+
+    <div class="bg-white/50 dark:bg-slate-800/50 backdrop-blur-xl border border-white/20 dark:border-slate-700/50 p-6 rounded-3xl shadow-2xl max-w-4xl mx-auto">
+      <nav class="flex flex-wrap justify-center gap-3 filters mb-6">
+        <button onclick="filterDogs('Todos')" data-size="Todos" class="px-6 py-2.5 font-black text-sm rounded-full bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 shadow-sm border border-gray-100 dark:border-slate-600 transition-all hover:scale-105 active-filter">Todos</button>
+        <button onclick="filterDogs('Pequeno')" data-size="Pequeno" class="px-6 py-2.5 font-black text-sm rounded-full bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 shadow-sm border border-gray-100 dark:border-slate-600 transition-all hover:scale-105">Pequeno</button>
+        <button onclick="filterDogs('Médio')" data-size="Médio" class="px-6 py-2.5 font-black text-sm rounded-full bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 shadow-sm border border-gray-100 dark:border-slate-600 transition-all hover:scale-105">Médio</button>
+        <button onclick="filterDogs('Grande')" data-size="Grande" class="px-6 py-2.5 font-black text-sm rounded-full bg-white dark:bg-slate-700 text-gray-700 dark:text-slate-200 shadow-sm border border-gray-100 dark:border-slate-600 transition-all hover:scale-105">Grande</button>
+      </nav>
+
+      <div class="flex flex-col items-center">
+        <div class="relative w-full max-w-sm">
+          <select id="breed-filter" onchange="filterByBreed(this.value)" class="w-full pl-4 pr-10 py-3 rounded-xl bg-white dark:bg-slate-700 text-gray-800 dark:text-slate-200 shadow-inner border-0 ring-1 ring-gray-200 dark:ring-slate-600 focus:ring-2 focus:ring-emerald-500 outline-none transition-all appearance-none cursor-pointer">
+            <option value="Todos">Todas as Raças</option>
+          </select>
+          <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400"></i>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <main id="dog-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6">
-    </main>
+  <main id="dog-list" class="relative z-10 flex overflow-x-auto snap-x snap-mandatory gap-6 px-6 pb-16 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 sm:overflow-x-visible sm:snap-none sm:px-12 custom-scrollbar">
+  </main>
 
-  <footer class="mt-12 text-center p-4 bg-yellow-400 text-gray-800 rounded-xl shadow-lg">
-    <p class="text-sm">© 2025 Amicão. Todos os direitos reservados.</p>
-    <p class="text-xs mt-1">Feito com carinho por Renato Paiva Dev 🚀💻</p>
+  <!-- Seção de Dicas de Cuidados -->
+  <section class="relative z-10 max-w-7xl mx-auto px-6 pb-16">
+    <h3 class="text-2xl font-black text-gray-800 dark:text-white mb-8 text-center flex items-center justify-center gap-2">
+      <i class="fas fa-lightbulb text-yellow-500"></i> Dicas de Cuidados
+    </h3>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white/50 dark:bg-slate-800/50 backdrop-blur-md p-5 rounded-3xl border border-white/20 dark:border-slate-700/50 shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <i class="fas fa-bone text-emerald-500 mb-3 text-2xl"></i>
+        <h4 class="font-extrabold text-gray-800 dark:text-white text-base mb-1">Alimentação</h4>
+        <p class="text-xs text-gray-600 dark:text-slate-400 leading-relaxed">Ofereça ração de qualidade e mantenha água sempre fresca disponível.</p>
+      </div>
+      <div class="bg-white/50 dark:bg-slate-800/50 backdrop-blur-md p-5 rounded-3xl border border-white/20 dark:border-slate-700/50 shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <i class="fas fa-heartbeat text-rose-500 mb-3 text-2xl"></i>
+        <h4 class="font-extrabold text-gray-800 dark:text-white text-base mb-1">Saúde</h4>
+        <p class="text-xs text-gray-600 dark:text-slate-400 leading-relaxed">Mantenha as vacinas em dia e realize check-ups anuais no veterinário.</p>
+      </div>
+      <div class="bg-white/50 dark:bg-slate-800/50 backdrop-blur-md p-5 rounded-3xl border border-white/20 dark:border-slate-700/50 shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <i class="fas fa-walking text-blue-500 mb-3 text-2xl"></i>
+        <h4 class="font-extrabold text-gray-800 dark:text-white text-base mb-1">Passeios</h4>
+        <p class="text-xs text-gray-600 dark:text-slate-400 leading-relaxed">Caminhadas diárias são essenciais para o gasto de energia e bem-estar.</p>
+      </div>
+      <div class="bg-white/50 dark:bg-slate-800/50 backdrop-blur-md p-5 rounded-3xl border border-white/20 dark:border-slate-700/50 shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <i class="fas fa-shower text-teal-500 mb-3 text-2xl"></i>
+        <h4 class="font-extrabold text-gray-800 dark:text-white text-base mb-1">Higiene</h4>
+        <p class="text-xs text-gray-600 dark:text-slate-400 leading-relaxed">Banhos regulares e escovação dos dentes evitam doenças e odores.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="relative z-10 bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-slate-700 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+      <div>
+        <h4 class="text-xl font-bold mb-4 flex items-center justify-center md:justify-start gap-2">
+          <i class="fas fa-paw text-emerald-500"></i> Amicão
+        </h4>
+        <p class="text-gray-600 dark:text-slate-400 text-sm">Conectando corações e patas desde 2025. Nossa missão é garantir que nenhum doguinho fique sem um lar cheio de carinho.</p>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold mb-4">Acesso Rápido</h4>
+        <ul class="text-gray-600 dark:text-slate-400 space-y-2 text-sm">
+          <li><a href="#" class="hover:text-emerald-500 transition">Como Adotar</a></li>
+          <li><a href="#" class="hover:text-emerald-500 transition">Quem Somos</a></li>
+          <li><a href="#" class="hover:text-emerald-500 transition">Política de Privacidade</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-bold mb-4">Siga-nos</h4>
+        <div class="flex justify-center md:justify-start gap-4 text-2xl">
+          <a href="#" class="text-gray-400 hover:text-emerald-500 transition"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-gray-400 hover:text-emerald-500 transition"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="text-gray-400 hover:text-emerald-500 transition"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-gray-200 dark:border-slate-700 py-6 text-center">
+      <p class="text-xs text-gray-500 dark:text-slate-500 font-medium italic">© 2025 Amicão. Feito com carinho por Renato Paiva Dev 🚀💻</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>

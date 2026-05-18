@@ -29,6 +29,21 @@ O usuário pode visualizar detalhes de cada cachorro.
 Clicar no botão "Adotar" exibirá uma mensagem de parabéns.
 O botão "Voltar para a Lista" leva de volta à lista de cães disponíveis.
 
+Como Rodar o Projeto 🚀
+
+Para ter o projeto Amicão rodando em sua máquina local, siga os passos abaixo:
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone https://github.com/seu-usuario/Projeto-AdoteumDoguinho.git
+    ```
+2.  **Navegue até o diretório do projeto:**
+    ```bash
+    cd Projeto-AdoteumDoguinho
+    ```
+3.  **Abra o arquivo `index.html`:**
+    Como este é um projeto front-end puro (HTML, CSS, JavaScript), você pode simplesmente abrir o arquivo `index.html` diretamente no seu navegador web preferido. Não é necessário um servidor local para as funcionalidades básicas.
+
 Contribuindo 🤝
 
 Faça um fork do repositório.

@@ -1,171 +1,361 @@
 "use strict"; // Lista de cães (para index.html)
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 var dogs = [{
   id: 1,
   name: "Toby",
+  breed: "terrier/cairn",
+  age: "2 anos",
+  gender: "Macho",
   size: "Pequeno",
   description: "Um cão pequeno e amigável, perfeito para apartamentos.",
-  curiosities: "Toby adora passeios curtos e é muito sociável com outros cães. Ele se adapta bem a espaços pequenos.",
-  image: "../img/pequeno2.jpg"
+  curiosities: "Toby adora passeios curtos e é muito sociável com outros cães.",
+  image: "../img/pequeno2.jpg",
+  likes: 12
 }, {
   id: 2,
   name: "Bella",
+  breed: "labrador",
+  age: "3 anos",
+  gender: "Fêmea",
   size: "Médio",
   description: "Uma cadela enérgica que adora brincar ao ar livre.",
-  curiosities: "Bella é cheia de energia e ama brinquedos de corrida. Também gosta de se refrescar em dias quentes.",
-  image: "../img/medio.jpg"
+  curiosities: "Bella é cheia de energia e ama brincar na água.",
+  image: "../img/medio.jpg",
+  likes: 25
 }, {
   id: 3,
   name: "Max",
+  breed: "germanshepherd",
+  age: "4 anos",
+  gender: "Macho",
   size: "Grande",
   description: "Um cão protetor e leal, ideal para famílias.",
-  curiosities: "Max é muito obediente e aprende comandos rapidamente. Ele também é ótimo com crianças.",
-  image: "../img/grande.jpg"
+  curiosities: "Max aprende comandos muito rápido.",
+  image: "../img/grande.jpg",
+  likes: 30
 }, {
   id: 4,
   name: "Luna",
+  breed: "chihuahua",
+  age: "1 ano",
+  gender: "Fêmea",
   size: "Pequeno",
   description: "Carinhosa e tranquila, adora um colo.",
-  curiosities: "Luna é muito apegada aos donos e adora cochilar perto de uma janela ensolarada.",
-  image: "../img/pequeno.jpg"
+  curiosities: "Luna adora cochilar no sol.",
+  image: "../img/pequeno.jpg",
+  likes: 48
 }, {
   id: 5,
   name: "Rex",
+  breed: "retriever/golden",
+  age: "5 anos",
+  gender: "Macho",
   size: "Grande",
   description: "Muito ativo, adora correr e brincar ao ar livre.",
-  curiosities: "Rex tem muita energia para longas caminhadas e corridas. Ele é um ótimo companheiro de aventuras.",
-  image: "../img/grande2.jpg"
+  curiosities: "Rex é o melhor companheiro de trilhas.",
+  image: "../img/grande2.jpg",
+  likes: 18
 }, {
   id: 6,
   name: "Daisy",
+  breed: "beagle",
+  age: "2 anos",
+  gender: "Fêmea",
   size: "Médio",
   description: "Docil e ótima para famílias com crianças.",
-  curiosities: "Daisy adora brincar de pegar bolinhas e é extremamente gentil com crianças pequenas.",
-  image: "../img/medio2.jpg"
+  curiosities: "Daisy tem um olfato incrível.",
+  image: "../img/medio2.jpg",
+  likes: 35
 }, {
   id: 7,
   name: "Charlie",
+  breed: "corgi",
+  age: "3 anos",
+  gender: "Macho",
   size: "Pequeno",
   description: "Cheio de energia, perfeito para aventuras.",
-  curiosities: "Charlie ama explorar novos lugares e é muito curioso com sons diferentes.",
-  image: "../img/pequeno3.jpg"
+  curiosities: "Charlie é muito curioso e brincalhão.",
+  image: "../img/pequeno3.jpg",
+  likes: 22
 }, {
   id: 8,
   name: "Molly",
+  breed: "akita",
+  age: "4 anos",
+  gender: "Fêmea",
   size: "Grande",
   description: "Carinhosa e protetora, ótima para fazendas.",
-  curiosities: "Molly é excelente em cuidar de espaços amplos. Ela também é muito fiel aos donos.",
-  image: "../img/grande3.jpg"
+  curiosities: "Molly é extremamente fiel.",
+  image: "../img/grande3.jpg",
+  likes: 41
 }, {
   id: 9,
   name: "Buddy",
+  breed: "pug",
+  age: "3 anos",
+  gender: "Macho",
   size: "Médio",
   description: "Sempre disposto a brincar e fazer novos amigos.",
-  curiosities: "Buddy é extremamente sociável e faz amizade com outros cães e pessoas rapidamente.",
-  image: "../img/medio3.jpg"
+  curiosities: "Buddy ronca um pouquinho quando dorme.",
+  image: "../img/medio3.jpg",
+  likes: 15
 }, {
   id: 10,
   name: "Ruby",
+  breed: "poodle",
+  age: "2 anos",
+  gender: "Fêmea",
   size: "Pequeno",
   description: "Adora companhia e está sempre ao seu lado.",
-  curiosities: "Ruby gosta de passear calmamente e está sempre atenta aos donos, seguindo-os por toda parte.",
-  image: "../img/pequeno4.jpg"
+  curiosities: "Ruby é muito inteligente.",
+  image: "../img/pequeno4.jpg",
+  likes: 28
 }, {
   id: 11,
   name: "Oscar",
+  breed: "rottweiler",
+  age: "5 anos",
+  gender: "Macho",
   size: "Grande",
   description: "Muito leal e protetor com sua família.",
-  curiosities: "Oscar é um excelente guardião e está sempre alerta para proteger quem ama.",
-  image: "../img/grande4.jpg"
+  curiosities: "Oscar é um gigante gentil.",
+  image: "../img/grande4.jpg",
+  likes: 33
 }, {
   id: 12,
   name: "Lucy",
+  breed: "maltese",
+  age: "1 ano",
+  gender: "Fêmea",
   size: "Pequeno",
   description: "Pequena, mas com um coração gigante!",
-  curiosities: "Lucy adora aprender truques e sempre busca agradar seus donos com gestos fofos.",
-  image: "../img/pequeno5.jpg"
+  curiosities: "Lucy adora aprender truques.",
+  image: "../img/pequeno5.jpg",
+  likes: 50
 }, {
   id: 13,
   name: "Rocky",
+  breed: "boxer",
+  age: "3 anos",
+  gender: "Macho",
   size: "Médio",
   description: "Um cão forte e corajoso, ideal para proteger sua casa.",
-  curiosities: "Rocky é muito leal e adora brincadeiras que testem sua força, como cabo de guerra.",
-  image: "../img/medio4.jpg"
+  curiosities: "Rocky adora pular de alegria.",
+  image: "../img/medio4.jpg",
+  likes: 19
 }, {
   id: 14,
   name: "Zara",
+  breed: "pomeranian",
+  age: "2 anos",
+  gender: "Fêmea",
   size: "Pequeno",
   description: "Muito doce e carinhosa, sempre pronta para um abraço.",
-  curiosities: "Zara gosta de estar no colo dos donos e é perfeita para aquecer dias frios com sua companhia.",
-  image: "../img/pequeno6.jpg"
+  curiosities: "Zara parece uma bolinha de pelos.",
+  image: "../img/pequeno6.jpg",
+  likes: 45
 }, {
   id: 15,
   name: "Spike",
+  breed: "stbernard",
+  age: "4 anos",
+  gender: "Macho",
   size: "Grande",
   description: "Grande e amigável, perfeito para famílias com espaço.",
-  curiosities: "Spike é muito dócil e gosta de brincar com bolas grandes. Ele é uma ótima companhia para quintais.",
-  image: "../img/grande5.jpg"
+  curiosities: "Spike adora crianças.",
+  image: "../img/grande5.jpg",
+  likes: 27
 }, {
   id: 16,
   name: "Pipoca",
+  breed: "frise/bichon",
+  age: "1 ano",
+  gender: "Fêmea",
   size: "Pequeno",
   description: "Brincalhona e cheia de energia, adora correr no parque.",
-  curiosities: "Pipoca é super animada e ama interagir com crianças. Ela se destaca por sua personalidade divertida.",
-  image: "../img/pequeno7.jpg"
-}]; // Função para renderizar os cães
+  curiosities: "Pipoca é pura diversão.",
+  image: "../img/pequeno7.jpg",
+  likes: 38
+}]; // Lógica de Tema Escuro
+
+function toggleDarkMode() {
+  var isDark = document.documentElement.classList.toggle('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+}
+
+function initTheme() {
+  var savedTheme = localStorage.getItem('theme');
+
+  if (savedTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else if (savedTheme === 'light') {
+    document.documentElement.classList.remove('dark');
+  } else {
+    // Se não houver tema salvo, use a preferência do sistema
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+    }
+  }
+} // Função para carregar likes do localStorage
+
+
+function loadLikesFromLocalStorage() {
+  var storedLikes = localStorage.getItem('dogLikes');
+
+  if (storedLikes) {
+    var parsedLikes = JSON.parse(storedLikes);
+    dogs.forEach(function (dog) {
+      var storedDog = parsedLikes.find(function (d) {
+        return d.id === dog.id;
+      });
+
+      if (storedDog) {
+        dog.likes = storedDog.likes;
+      }
+    });
+  }
+} // Função para salvar likes no localStorage
+
+
+function saveLikesToLocalStorage() {
+  var likesToStore = dogs.map(function (dog) {
+    return {
+      id: dog.id,
+      likes: dog.likes
+    };
+  });
+  localStorage.setItem('dogLikes', JSON.stringify(likesToStore));
+} // Variáveis de estado para filtros combinados
+
+
+var currentSize = "Todos";
+var currentBreed = "Todos"; // Preenche o select de raças dinamicamente
+
+function populateBreeds() {
+  var breedFilter = document.getElementById('breed-filter');
+  if (!breedFilter) return; // Extrai raças únicas e ordena alfabeticamente
+
+  var uniqueBreeds = _toConsumableArray(new Set(dogs.map(function (dog) {
+    return dog.breed;
+  }))).sort();
+
+  uniqueBreeds.forEach(function (breed) {
+    if (!breed) return;
+    var option = document.createElement('option');
+    option.value = breed;
+    option.textContent = breed.toUpperCase();
+    breedFilter.appendChild(option);
+  });
+}
+
+function applyAllFilters() {
+  var filteredDogs = dogs.filter(function (dog) {
+    var matchesSize = currentSize === "Todos" || dog.size === currentSize;
+    var matchesBreed = currentBreed === "Todos" || dog.breed === currentBreed;
+    return matchesSize && matchesBreed;
+  });
+  renderDogs(filteredDogs);
+} // Função para renderizar os cães
+
 
 function renderDogs(filteredDogs) {
   var dogList = document.getElementById("dog-list");
   dogList.innerHTML = "";
-  filteredDogs.forEach(function (dog) {
-    var card = document.createElement("div"); // Classes Tailwind para o card completo
-
-    card.className = "bg-white rounded-xl shadow-lg overflow-hidden flex flex-col justify-between";
-    card.innerHTML = "\n      <img src=\"".concat(dog.image, "\" alt=\"").concat(dog.name, "\" class=\"w-full h-48 object-cover\"/>\n      <div class=\"p-4 flex flex-col justify-between flex-grow\">\n        <div class=\"text-center\">\n            <h2 class=\"text-xl font-semibold mb-1 text-gray-900\">").concat(dog.name, "</h2>\n            <p class=\"text-sm text-gray-500 mb-2\">").concat(dog.size, " Porte</p>\n            <p class=\"text-sm mb-3\">").concat(dog.description, "</p>\n        </div>\n        <button onclick=\"adoptDog(").concat(dog.id, ", event)\" class=\"w-full py-2 mt-2 bg-yellow-400 text-gray-800 font-semibold rounded-lg transition duration-300 hover:bg-yellow-600 hover:text-white hover:scale-110 hover:shadow-2xl\">Adotar</button>\n      </div>\n    ");
+  filteredDogs.forEach(function (dog, index) {
+    var card = document.createElement("div");
+    card.className = "group opacity-0 animate-fade-in flex-shrink-0 w-[85vw] sm:w-auto snap-center bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-white/20 dark:border-slate-700/50 rounded-3xl shadow-lg overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:-translate-y-2";
+    card.style.animationDelay = "".concat(index * 0.05, "s");
+    card.innerHTML = "\n        <div class=\"overflow-hidden h-52\">\n          <img src=\"".concat(dog.image, "\" alt=\"Foto de ").concat(dog.name, "\" class=\"w-full h-full object-cover transition-transform duration-500 group-hover:scale-110\"/>\n        </div>\n        <div class=\"p-5 flex flex-col justify-between flex-grow\">\n          <div class=\"text-center\">\n              <span class=\"inline-block px-3 py-1 text-[10px] font-black uppercase tracking-[0.1em] text-emerald-700 bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-400 rounded-lg mb-3\">").concat(dog.size, "</span>\n              <h2 class=\"text-2xl font-extrabold mb-1 text-gray-800 dark:text-white group-hover:text-emerald-500 transition-colors\">").concat(dog.name, "</h2>\n              <p class=\"text-xs font-bold text-emerald-600/80 dark:text-emerald-400/80 mb-3 uppercase tracking-widest\">").concat(dog.breed, "</p>\n              <p class=\"text-sm text-gray-600 dark:text-slate-400 mb-5 line-clamp-2 leading-relaxed\">").concat(dog.description, "</p>\n          </div>\n          <div class=\"flex items-center justify-between mt-auto\"> \n              <button data-id=\"").concat(dog.id, "\" class=\"like-btn flex items-center gap-1 text-gray-500 dark:text-slate-400 transition-colors\">\n                  <i class=\"fas fa-heart text-red-500 text-lg\"></i>\n                  <span id=\"like-count-").concat(dog.id, "\" class=\"text-sm font-semibold\">").concat(dog.likes, "</span>\n              </button>\n              <button data-id=\"").concat(dog.id, "\" class=\"adopt-btn py-2 px-4 bg-emerald-500 text-white font-black rounded-xl transition-all duration-300 hover:bg-emerald-600 hover:shadow-emerald-200 dark:hover:shadow-emerald-900/20 shadow-lg active:scale-95 flex items-center justify-center gap-2\">\n                <i class=\"fas fa-search-plus text-sm\"></i> Detalhes\n              </button>\n          </div>\n        </div>\n      ");
     dogList.appendChild(card);
   });
-} // Função para filtrar os cães por porte
-
+}
 
 function filterDogs(size) {
-  var filteredDogs = size === "Todos" ? dogs : dogs.filter(function (dog) {
-    return dog.size === size;
-  });
-  renderDogs(filteredDogs); // Lógica para aplicar e remover a classe 'active-filter'
+  currentSize = size;
+  applyAllFilters(); // Lógica para aplicar e remover a classe 'active-filter'
 
   var buttons = document.querySelectorAll('.filters button');
   buttons.forEach(function (button) {
-    button.classList.remove('active-filter'); // Adiciona a classe ativa se o texto do botão corresponder ao filtro
+    button.classList.remove('active-filter'); // Adiciona a classe ativa se o data-size do botão corresponder ao filtro
 
-    if (button.textContent.includes(size)) {
+    if (button.dataset.size === size) {
       button.classList.add('active-filter');
     }
   });
-} // Função de adoção (SALVA O ID, ADICIONA DESTAQUE TEMPORÁRIO E REDIRECIONA)
+}
+
+function filterByBreed(breed) {
+  currentBreed = breed;
+  applyAllFilters();
+} // Nova função para lidar com cliques no botão de curtir
 
 
-function adoptDog(id, event) {
-  var button = event.target; // 1. Adiciona a classe 'clicked-highlight' para o destaque/zoom imediato
-  // Esta classe precisa ser definida no CSS global ou localmente se não for uma classe Tailwind padrão.
-  // Para fins de CDN, o hover já dará um efeito similar no desktop.
-  // No mobile, o touch fará a transição.
+function handleLikeClick(event) {
+  var button = event.target.closest('.like-btn');
+  if (!button) return;
+  var dogId = parseInt(button.dataset.id);
+  var dog = dogs.find(function (d) {
+    return d.id === dogId;
+  });
 
-  button.classList.add('clicked-highlight');
-  localStorage.setItem('adoptedDogId', id); // 2. Espera 300ms (0.3s) para o efeito visual aparecer antes de redirecionar
+  if (dog) {
+    dog.likes++;
+    document.getElementById("like-count-".concat(dogId)).textContent = dog.likes; // Atualiza a UI
+
+    saveLikesToLocalStorage(); // Salva no localStorage
+
+    var heartIcon = button.querySelector('.fas.fa-heart');
+
+    if (heartIcon) {
+      heartIcon.classList.add('animate-pulse'); // Feedback visual no ícone
+
+      setTimeout(function () {
+        return heartIcon.classList.remove('animate-pulse');
+      }, 500);
+    }
+  }
+}
+
+function handleAdoptClick(event) {
+  var button = event.target.closest('.adopt-btn');
+  if (!button) return;
+  var id = button.dataset.id;
+  button.classList.add('clicked-highlight'); // Sugestão: Usar URLSearchParams é mais limpo que LocalStorage para navegação
 
   setTimeout(function () {
-    window.location.href = 'detalhes.html';
-    button.classList.remove('clicked-highlight');
+    window.location.href = "detalhes.html?id=".concat(id);
   }, 300);
-} // Renderiza todos os cães ao carregar a página
-
+}
 
 window.onload = function () {
-  renderDogs(dogs); // Ativa visualmente o botão "Todos" ao carregar a página
+  initTheme();
+  loadLikesFromLocalStorage(); // Carrega os likes antes de renderizar
+
+  renderDogs(dogs);
+  populateBreeds(); // Event Delegation para os botões de adoção
+
+  var dogList = document.getElementById("dog-list");
+
+  if (dogList) {
+    dogList.addEventListener("click", function (event) {
+      handleAdoptClick(event); // Lógica existente de adoção
+
+      handleLikeClick(event); // Nova lógica de curtir
+    });
+  }
 
   var allButton = document.querySelector('.filters button');
 
-  if (allButton && allButton.textContent.includes('Todos')) {
+  if (allButton && allButton.dataset.size === 'Todos') {
+    // Corrigido para usar dataset.size
     allButton.classList.add('active-filter');
   }
 };
